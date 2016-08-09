@@ -1,4 +1,6 @@
-module.exports = function(){
+exports.ormFile = {
+
+function(){
 
 var sql = require('connection.js').connections;
 
@@ -32,5 +34,6 @@ function updateOne(){
 
 }
 
+}
 
 

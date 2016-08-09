@@ -1,0 +1,1 @@
+var newORM = require('orm.js').ormFile;
