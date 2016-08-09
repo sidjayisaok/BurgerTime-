@@ -1,0 +1,25 @@
+{
+  "name": "BurgerTime-",
+  "version": "0.0.0",
+  "description": "I wish it were Burger Time. That game was kickass. But I digress. This is a project involving Node.js, MySQL, Express.js, and HandleBars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sidjayisaok/BurgerTime-.git"
+  },
+  "author": "Sid Jay",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/sidjayisaok/BurgerTime-/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "express-handlebars": "~3.0.0",
+    "method-override": "~2.3.6",
+    "mysql": "~2.11.1",
+    "body-parser": "~1.15.2"
+  }
+}
