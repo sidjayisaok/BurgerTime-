@@ -13,5 +13,7 @@ exports.connections = {
 
     console.log('connected as: ' + connection.threadId);
   });
+
+  connection.end(function(error){});
 }
 }
