@@ -7,7 +7,5 @@ CREATE TABLE burgers(
   burger_name VARCHAR(16),
   devoured BOOLEAN,
   date TIMESTAMP,
-
   PRIMARY KEY(id)
-
 );

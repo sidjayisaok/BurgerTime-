@@ -13,6 +13,18 @@ app.use(express.static(__dirname + '/public'));
 app.use(parser.urlencoded({extended: false}))
 app.set('view engine', 'handlebars');
 
+//might not need this
+app.get('/', function(request, response){
+    
+});
+
+//establish the method override and handlebars
+app.use(override('_method'));
+app.engine('handlebars', handlebars({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+
 //fire up the server
 app.listen(PORT, function(){
     console.log("listening at port " + PORT);
