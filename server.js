@@ -15,7 +15,11 @@ app.set('view engine', 'handlebars');
 
 //might not need this
 app.get('/', function(request, response){
-    
+   response.send('root'); 
+});
+
+app.post('/', function(request,response){
+    response.send('root');
 });
 
 //establish the method override and handlebars
