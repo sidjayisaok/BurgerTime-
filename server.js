@@ -13,12 +13,18 @@ app.use(express.static(__dirname + '/public'));
 app.use(parser.urlencoded({extended: false}))
 app.set('view engine', 'handlebars');
 
-//might not need this
-app.get('/', function(request, response){
+//get and post routes
+app.get('/', function(error, request, response){
+    if(error){
+        throw error;
+    }
    response.send('root'); 
 });
 
-app.post('/', function(request,response){
+app.post('/', function(error, request,response){
+    if(error){
+        throw error;
+    }
     response.send('root');
 });
 
@@ -30,6 +36,9 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //fire up the server
-app.listen(PORT, function(){
+app.listen(PORT, function(error){
+    if(error){
+        throw error;
+    }
     console.log("listening at port " + PORT);
 });
