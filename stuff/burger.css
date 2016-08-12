@@ -1,0 +1,32 @@
+h1 {
+	font-family: 'Poiret One', cursive;
+	font-size: 12px;                                                             
+	padding: 1%;
+}
+
+#addBurger{
+	font-family: 'Poiret One', cursive;
+    font-size: 12px;
+    background-color: #FADCAB;
+}
+
+p , label, div.well.devoured{
+
+	font-size: 18px;
+}
+
+#eatBurger {
+	background-color: #BACDAF;
+}
+
+.devoured{
+	background-color: #DACFEB;
+}
+
+button{
+	padding: 1%;
+}
+
+p{
+	padding: .5%;
+}
