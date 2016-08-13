@@ -4,6 +4,9 @@ var handlebars = require('express-handlebars');
 var override = require('method-override');
 var mysql = require('mysql');
 var parser = require('body-parser');
+var connections = require('config/connection.js').connection;
+var ORMstuff = require('config/orm.js').ormFile;
+var burgersStuff = require('models/burgers.js').burgers;
 var PORT = process.env.PORT || 8000;
 var app = express();
 
@@ -14,18 +17,16 @@ app.use(parser.urlencoded({extended: false}))
 app.set('view engine', 'handlebars');
 
 //get and post routes
-app.get('/', function(error, request, response){
-    if(error){
-        throw error;
-    }
-   response.send('root'); 
+app.get('/', function(request, response){
+    ORMstuff.selectAll(response);
 });
 
-app.post('/', function(error, request,response){
-    if(error){
-        throw error;
-    }
-    response.send('root');
+app.post('/', function(request, response){
+   ORMstuff.selectOne(request.body.id);
+});
+
+app.post('/', function(request, response){
+    ORMstuff.updateOne(request.body.id);
 });
 
 //establish the method override and handlebars
@@ -36,9 +37,6 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //fire up the server
-app.listen(PORT, function(error){
-    if(error){
-        throw error;
-    }
+app.listen(PORT, function(){
     console.log("listening at port " + PORT);
 });

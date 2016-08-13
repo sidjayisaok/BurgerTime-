@@ -9,5 +9,3 @@ exports.burgers = function(){
     newORM.updateOne('date', 'burger_name', 'devoured');
 
 }
-
-

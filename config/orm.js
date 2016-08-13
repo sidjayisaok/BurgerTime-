@@ -20,7 +20,6 @@ insertOne: function(request, response){
             throw error;
         }
         results.redirect('/');
-        // console.log('You have entered: ' + results.burger_name);  
     });
 }
 
@@ -30,7 +29,6 @@ updateOne: function(request, response){
             throw error;
         }
         results.redirect('/');
-        // console.log('Updated at ' + results.burger_name);
     });
 }
 }
