@@ -1,6 +1,6 @@
-exports.ormFile = function() {
+var sql = require('./connection.js').connections;
 
-var sql = require('connection.js').connection;
+exports.ormFile = {
 
 selectAll: function(request, response){
     sql.query("SELECT * FROM burgers;", function(error, results){
@@ -12,7 +12,7 @@ selectAll: function(request, response){
         });
         console.log(results);
     });
-}
+},
 
 insertOne: function(request, response){
     sql.query("INSERT INTO burgers (date, burger_name, devoured) VALUES (?, ?, ?)", [request.body.date, request.body.burger_name, request.body.devoured], function(error, results){
@@ -21,7 +21,7 @@ insertOne: function(request, response){
         }
         results.redirect('/');
     });
-}
+},
 
 updateOne: function(request, response){
     sql.query('UPDATE burgers SET burger_name = ?, devoured = ? WHERE Id = ?', [request.body.date, request.body.burger_name, request.body.devoured], function(error, results){

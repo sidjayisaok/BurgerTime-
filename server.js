@@ -4,9 +4,9 @@ var handlebars = require('express-handlebars');
 var override = require('method-override');
 var mysql = require('mysql');
 var parser = require('body-parser');
-var connections = require('config/connection.js').connection;
-var ORMstuff = require('config/orm.js').ormFile;
-var burgersStuff = require('models/burgers.js').burgers;
+var connections = require('./config/connection.js').connections;
+var ORMstuff = require('./config/orm.js').ormFile;
+var burgersStuff = require('./models/burgers.js').burgers;
 var PORT = process.env.PORT || 8000;
 var app = express();
 

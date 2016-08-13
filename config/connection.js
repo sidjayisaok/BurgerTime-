@@ -1,10 +1,12 @@
-exports.connection = function(){
- //import keys
-  var sqlInfo = require('./sqlInfo.js').sqlInform;
-  //establish mysql database
-  var connection = mysql.createConnection(sqlInfo);
+var mysql = require('mysql');
+//import keys
+var sqlInfo = require('./sqlInfo.js').sqlInform;
+//establish mysql database
+var connection = mysql.createConnection(sqlInfo);
 
-  connection.connect(function(error){
+exports.connections = {
+ connect : function(){
+   connection.connect(function(error){
     if(error){
       console.log("error: " + error.stack);
       return;
@@ -12,6 +14,7 @@ exports.connection = function(){
     console.log('connected as: ' + connection.threadId);
   });
   connection.end(function(error){});
+ } 
 };
  
 
