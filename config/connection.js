@@ -5,10 +5,12 @@ var sqlInfo = require('./sqlInfo.js').sqlInform;
 var connection = mysql.createConnection(sqlInfo);
 
 connection.connect(function(error){
-  if(error){
-    throw error;
-  };
-  console.log('connected to database');
+  if(!error){
+    console.log('connected to database');
+  }
+  else if(error){
+    console.log(error);
+  }
 });
 
 module.exports = connection;

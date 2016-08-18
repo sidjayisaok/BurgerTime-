@@ -2,12 +2,12 @@ var express = require('express');
 var override = require('method-override');
 var parser = require('body-parser');
 var app = express();
-var burgerControl = require('../models/burgers.js').burgers;
+var burgerControl = require('../models/burgers.js');
 
 
 var burgerExports = function(app){
     
-    app.get(function(request, response){
+    app.get('/', function(request, response){
         burgerControl.get('burgers', function(error, results){
             if(error){
                 throw error;
@@ -47,8 +47,5 @@ var burgerExports = function(app){
     })
 
 }
-
-
-
 
 module.exports = burgerExports;

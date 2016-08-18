@@ -1,11 +1,23 @@
-exports.burgers = function(){
+var ORM = require('../config/orm');
 
-    var newORM = require('../config/orm.js').ormFile;
+var burger = {
 
-    newORM.selectAll('date','burger_name','devoured', 'DESC');
+    get: function(table, response){
+        ORM.selectAll(table, response);
+    },
+    
+    post: function(burger, response){
+        ORM.insertOne(burger, response);
+    },
+    
+    put: function(id, response){
+        ORM.updateOne(id, response);
+    },
 
-    newORM.insertOne('date', 'burger_name', 'devoured');
-
-    newORM.updateOne('date', 'burger_name', 'devoured');
-
+    delete: function(id, response){
+        ORM.deleteOne(id, response);
+    }
+    
 }
+
+module.exports = burger;
