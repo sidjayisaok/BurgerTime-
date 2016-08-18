@@ -10,7 +10,7 @@ var burgerExports = function(app){
     app.get(function(request, response){
         burgerControl.get('burgers', function(error, results){
             if(error){
-                throw error,
+                throw error;
             }
             console.log('burger-get');
             response.render('index', {

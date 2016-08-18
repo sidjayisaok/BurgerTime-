@@ -1,4 +1,4 @@
-var sql = require('./connection.js').connections;
+var sql = require('../config/connection.js').connections;
 
 exports.ormFile = {
 

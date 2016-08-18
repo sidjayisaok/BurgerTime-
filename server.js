@@ -9,7 +9,7 @@ var ORMstuff = require('./config/orm.js').ormFile;
 var burgersStuff = require('./models/burgers.js').burgers;
 var PORT = process.env.PORT || 8000;
 var app = express();
-var control = require('./controllers/burger_controller.js');
+var control = require('./controllers/burgers_controller.js');
 
 //delivers static webpages
 app.use(express.static(__dirname + '/public'));
