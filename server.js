@@ -9,6 +9,7 @@ var ORMstuff = require('./config/orm.js').ormFile;
 var burgersStuff = require('./models/burgers.js').burgers;
 var PORT = process.env.PORT || 8000;
 var app = express();
+var control = require('./controllers/burger_controller.js');
 
 //delivers static webpages
 app.use(express.static(__dirname + '/public'));
@@ -35,6 +36,8 @@ app.engine('handlebars', handlebars({
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
+control(app);
 
 //fire up the server
 app.listen(PORT, function(){

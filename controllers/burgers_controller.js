@@ -3,13 +3,52 @@ var override = require('method-override');
 var parser = require('body-parser');
 var app = express();
 var burgerControl = require('../models/burgers.js').burgers;
-var router = express.Router();
 
 
-router.get(function(request, response){
-    response.render();
-});
+var burgerExports = function(app){
+    
+    app.get(function(request, response){
+        burgerControl.get('burgers', function(error, results){
+            if(error){
+                throw error,
+            }
+            console.log('burger-get');
+            response.render('index', {
+                rows: results
+            });
+        });
+    });
 
-app.use('/', router);
+    app.post('/burger', function(request, response){
+        burgerControl.post(request.body.burger, function(error, results){
+            if(error){
+                throw error;
+            }
+            response.redirect('/');
+        });
+    });
 
-module.exports = router;
+    app.put('/burger', function(request, response){
+        burgerControl.put(request.body.id, function(error, results){
+            if(error){
+                throw error;
+            }
+            response.redirect('/');
+        });
+    });
+
+    app.delete('/burger', function(request, response){
+        burgerControl.delete(request.body.id, function(error, results){
+        if(error){
+            throw error;
+        } 
+        response.redirect('/');
+        });
+    })
+
+}
+
+
+
+
+module.exports = burgerExports;
